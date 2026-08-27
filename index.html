@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Café Atlas - Contact</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 30px 15px;
+        }
+
+        .card {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+        }
+
+        .logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        .profession {
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .info {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .info p {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 12px;
+            border-radius: 12px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .save {
+            background: #111;
+            color: white;
+        }
+
+        .call {
+            background: #eee;
+            color: #111;
+        }
+
+        .whatsapp {
+            background: #eee;
+            color: #111;
+        }
+
+        .maps {
+            background: #eee;
+            color: #111;
+        }
+
+        .footer {
+            margin-top: 25px;
+            color: #999;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <!-- Logo -->
+    <img
+        src="logo.png"
+        alt="Café Atlas"
+        class="logo"
+    >
+
+    <!-- Nom -->
+    <h1>Café Atlas</h1>
+
+    <p class="profession">
+        Restaurant & Café
+    </p>
+
+
+    <!-- Informations -->
+    <div class="info">
+
+        <p>
+            📍 Agadir, Maroc
+        </p>
+
+        <p>
+            📞 +212 600 000 000
+        </p>
+
+        <p>
+            ✉️ contact@cafeatlas.ma
+        </p>
+
+        <p>
+            🌐 www.cafeatlas.ma
+        </p>
+
+    </div>
+
+
+    <!-- Enregistrer contact -->
+    <button
+        class="button save"
+        onclick="saveContact()"
+    >
+        💾 Enregistrer le contact
+    </button>
+
+
+    <!-- Appeler -->
+    <a
+        href="tel:+212600000000"
+        class="button call"
+    >
+        📞 Appeler
+    </a>
+
+
+    <!-- WhatsApp -->
+    <a
+        href="https://wa.me/212600000000"
+        class="button whatsapp"
+        target="_blank"
+    >
+        💬 WhatsApp
+    </a>
+
+
+    <!-- Google Maps -->
+    <a
+        href="https://maps.google.com/?q=Agadir+Morocco"
+        class="button maps"
+        target="_blank"
+    >
+        📍 Google Maps
+    </a>
+
+
+    <div class="footer">
+        Carte de contact NFC
+    </div>
+
+</div>
+
+
+<script>
+
+function saveContact() {
+
+    const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Café Atlas
+ORG:Café Atlas
+TEL;TYPE=CELL:+212600000000
+EMAIL:contact@cafeatlas.ma
+ADR;TYPE=WORK:;;Agadir;;;Maroc
+URL:https://cafeatlas.ma
+END:VCARD`;
+
+    const blob = new Blob(
+        [vcard],
+        {
+            type: "text/vcard;charset=utf-8"
+        }
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+
+    link.href = url;
+
+    link.download = "Cafe-Atlas.vcf";
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+
+    URL.revokeObjectURL(url);
+}
+
+</script>
+
+</body>
+</html>
