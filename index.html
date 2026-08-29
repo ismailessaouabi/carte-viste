@@ -1,269 +1,228 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carte de Visite Virtuelle</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome pour les icônes -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+    <title>Café Atlas - Contact</title>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-}
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #0f172a;
-    overflow: hidden;
-    position: relative;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 30px 15px;
+        }
 
-/* Orbes lumineux en arrière-plan */
-.circle {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    z-index: 0;
-}
+        .card {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+        }
 
-.circle-1 {
-    width: 300px;
-    height: 300px;
-    background: #6366f1;
-    top: 15%;
-    left: 20%;
-}
+        .logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
 
-.circle-2 {
-    width: 250px;
-    height: 250px;
-    background: #ec4899;
-    bottom: 15%;
-    right: 20%;
-}
+        h1 {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
 
-/* Carte Glassmorphism */
-.card-container {
-    position: relative;
-    width: 360px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 24px;
-    padding: 32px 24px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-    z-index: 1;
-    transform-style: preserve-3d;
-    transition: transform 0.1s ease-out;
-}
+        .profession {
+            color: #777;
+            margin-bottom: 25px;
+        }
 
-.card-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transform: translateZ(30px); /* Donne de la profondeur */
-}
+        .info {
+            text-align: left;
+            margin-bottom: 25px;
+        }
 
-/* Avatar */
-.avatar-box {
-    position: relative;
-    margin-bottom: 16px;
-}
+        .info p {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
 
-.avatar-box img {
-    width: 96px;
-    height: 96px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-}
+        .button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 12px;
+            border-radius: 12px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
 
-.status-badge {
-    position: absolute;
-    bottom: 6px;
-    right: 6px;
-    width: 14px;
-    height: 14px;
-    background-color: #10b981;
-    border: 2px solid #0f172a;
-    border-radius: 50%;
-}
+        .save {
+            background: #111;
+            color: white;
+        }
 
-/* Informations utilisateur */
-.user-info h2 {
-    color: #ffffff;
-    font-size: 1.35rem;
-    font-weight: 700;
-}
+        .call {
+            background: #eee;
+            color: #111;
+        }
 
-.user-info .title {
-    color: #818cf8;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-top: 4px;
-}
+        .whatsapp {
+            background: #eee;
+            color: #111;
+        }
 
-.user-info .location {
-    color: #94a3b8;
-    font-size: 0.8rem;
-    margin-top: 4px;
-}
+        .maps {
+            background: #eee;
+            color: #111;
+        }
 
-.bio {
-    color: #cbd5e1;
-    font-size: 0.85rem;
-    line-height: 1.4;
-    margin: 18px 0;
-}
-
-/* Réseaux sociaux */
-.social-links {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 24px;
-}
-
-.social-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.social-btn:hover {
-    background: #6366f1;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
-}
-
-/* Boutons d'action */
-.actions {
-    display: flex;
-    gap: 12px;
-    width: 100%;
-}
-
-.btn {
-    flex: 1;
-    padding: 12px;
-    border-radius: 12px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    border: none;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, #6366f1, #4f46e5);
-    color: #ffffff;
-}
-
-.btn-primary:hover {
-    opacity: 0.9;
-    box-shadow: 0 8px 16px rgba(79, 70, 229, 0.3);
-}
-
-.btn-secondary {
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-   </style>
-
+        .footer {
+            margin-top: 25px;
+            color: #999;
+            font-size: 12px;
+        }
+    </style>
 </head>
-
 
 <body>
 
-    <!-- Arrière-plan dynamique (orbes lumineux) -->
-    <div class="circle circle-1"></div>
-    <div class="circle circle-2"></div>
+<div class="card">
 
-    <!-- Carte principale -->
-    <div class="card-container" id="card">
-        <div class="card-content">
-            <div class="avatar-box">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Photo de profil">
-                <span class="status-badge"></span>
-            </div>
+    <!-- Logo -->
+    <img
+        src="logo.png"
+        alt="Café Atlas"
+        class="logo"
+    >
 
-            <div class="user-info">
-                <h2>Alexandre Martin</h2>
-                <p class="title">Lead UI/UX Designer & Dev</p>
-                <p class="location"><i class="fa-solid fa-location-dot"></i> Paris, France</p>
-            </div>
+    <!-- Nom -->
+    <h1>Café Atlas</h1>
 
-            <p class="bio">
-                Je crée des expériences numériques élégantes, modernes et intuitives. Passionné par l'innovation web.
-            </p>
+    <p class="profession">
+        Restaurant & Café
+    </p>
 
-            <div class="social-links">
-                <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="#" class="social-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="#" class="social-btn" title="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="#" class="social-btn" title="Dribbble"><i class="fa-brands fa-dribbble"></i></a>
-            </div>
 
-            <div class="actions">
-                <a href="mailto:contact@exemple.com" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Me Contacter</a>
-                <button class="btn btn-secondary" onclick="downloadVCard()"><i class="fa-solid fa-user-plus"></i> Enregistrer</button>
-            </div>
-        </div>
+    <!-- Informations -->
+    <div class="info">
+
+        <p>
+            📍 Agadir, Maroc
+        </p>
+
+        <p>
+            📞 +212 600 000 000
+        </p>
+
+        <p>
+            ✉️ contact@cafeatlas.ma
+        </p>
+
+        <p>
+            🌐 www.cafeatlas.ma
+        </p>
+
     </div>
 
-    <script >
-        // Effet d'inclinaison 3D au survol de la souris
-const card = document.getElementById('card');
 
-document.addEventListener('mousemove', (e) => {
-    // Calcul de la position du curseur par rapport au centre de l'écran
-    const xAxis = (window.innerWidth / 2 - e.pageX) / 20;
-    const yAxis = (window.innerHeight / 2 - e.pageY) / 20;
-    
-    // Application de la rotation
-    card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-});
+    <!-- Enregistrer contact -->
+    <button
+        class="button save"
+        onclick="saveContact()"
+    >
+        💾 Enregistrer le contact
+    </button>
 
-// Réinitialisation de la position quand la souris sort de l'écran
-document.addEventListener('mouseleave', () => {
-    card.style.transform = 'rotateY(0deg) rotateX(0deg)';
-});
 
-// Simulation de téléchargement de contact (vCard)
-function downloadVCard() {
-    alert("Fonctionnalité : Téléchargement du fichier .vcf pour enregistrer le contact sur votre téléphone !");
+    <!-- Appeler -->
+    <a
+        href="tel:+212600000000"
+        class="button call"
+    >
+        📞 Appeler
+    </a>
+
+
+    <!-- WhatsApp -->
+    <a
+        href="https://wa.me/212600000000"
+        class="button whatsapp"
+        target="_blank"
+    >
+        💬 WhatsApp
+    </a>
+
+
+    <!-- Google Maps -->
+    <a
+        href="https://maps.google.com/?q=Agadir+Morocco"
+        class="button maps"
+        target="_blank"
+    >
+        📍 Google Maps
+    </a>
+
+
+    <div class="footer">
+        Carte de contact NFC
+    </div>
+
+</div>
+
+
+<script>
+
+function saveContact() {
+
+    const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Café Atlas
+ORG:Café Atlas
+TEL;TYPE=CELL:+212780856535
+EMAIL:contact@cafeatlas.ma
+ADR;TYPE=WORK:;;Agadir;;;Maroc
+URL:https://cafeatlas.ma
+END:VCARD`;
+
+    const blob = new Blob(
+        [vcard],
+        {
+            type: "text/vcard;charset=utf-8"
+        }
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+
+    link.href = url;
+
+    link.download = "Cafe-Atlas.vcf";
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+
+    URL.revokeObjectURL(url);
 }
-    </script>
-</body>
 
+</script>
+
+</body>
 </html>
