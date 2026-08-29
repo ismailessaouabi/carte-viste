@@ -127,13 +127,10 @@
 <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2">Alexandre Dupont</h1>
 <p class="text-on-surface-variant font-label-sm text-label-sm mb-6 uppercase tracking-wider">Développeur Full Stack</p>
 <!-- Primary Action Button -->
-<button
-    id="addContactBtn"
-    class="w-full md:w-auto px-8 py-4 bg-primary text-on-primary rounded-lg font-body-md text-body-md font-semibold flex items-center justify-center gap-3 hover:scale-[1.02] transition-transform duration-200 hover:shadow-[0_0_20px_rgba(173,198,255,0.3)]"
->
-    <span class="material-symbols-outlined icon-fill">person_add</span>
-    Ajouter aux contacts
-</button>
+<button onclick="saveContact()" class="w-full md:w-auto px-8 py-4 bg-primary text-on-primary rounded-lg font-body-md text-body-md font-semibold flex items-center justify-center gap-3 hover:scale-[1.02] transition-transform duration-200 hover:shadow-[0_0_20px_rgba(173,198,255,0.3)]">
+<span class="material-symbols-outlined icon-fill">person_add</span>
+                    Ajouter aux contacts
+                </button>
 </div>
 </section>
 <!-- Quick Actions (Bento Style) -->
@@ -212,41 +209,43 @@
 </a>
 </nav>
 <script>
-    document.getElementById("addContactBtn").addEventListener("click", function () {
+
+    function saveContact() {
     
-        // Informations du contact
-        const contact = `
-    BEGIN:VCARD
+        const vcard = `BEGIN:VCARD
     VERSION:3.0
-    FN:Alexandre Dupont
-    N:Dupont;Alexandre;;;
-    TITLE:Développeur Full Stack
-    TEL;TYPE=CELL:+212600000000
-    EMAIL:alexandre@example.com
-    URL:https://example.com
-    NOTE:Développeur Full Stack
-    END:VCARD
-    `;
+    FN:Café Atlas
+    ORG:Café Atlas
+    TEL;TYPE=CELL:+212780856535
+    EMAIL:contact@cafeatlas.ma
+    ADR;TYPE=WORK:;;Agadir;;;Maroc
+    URL:https://cafeatlas.ma
+    END:VCARD`;
     
-        // Création du fichier VCF
-        const blob = new Blob([contact], {
-            type: "text/vcard;charset=utf-8"
-        });
+        const blob = new Blob(
+            [vcard],
+            {
+                type: "text/vcard;charset=utf-8"
+            }
+        );
     
-        // Création d'un lien temporaire
         const url = URL.createObjectURL(blob);
     
         const link = document.createElement("a");
-        link.href = url;
-        link.download = "Alexandre-Dupont.vcf";
     
-        // Téléchargement
+        link.href = url;
+    
+        link.download = "Cafe-Atlas.vcf";
+    
         document.body.appendChild(link);
+    
         link.click();
     
-        // Nettoyage
         document.body.removeChild(link);
+    
         URL.revokeObjectURL(url);
-    });
+    }
+    
     </script>
+    
 </body></html>
