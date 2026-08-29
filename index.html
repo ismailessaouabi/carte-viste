@@ -1,228 +1,252 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Café Atlas - Contact</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Business Card - Alexandre Dupont</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#333535",
+                        "inverse-primary": "#005bc1",
+                        "on-secondary-container": "#b7b5b4",
+                        "surface-bright": "#37393a",
+                        "on-primary-container": "#00285c",
+                        "on-surface": "#e2e2e2",
+                        "surface-tint": "#adc6ff",
+                        "on-background": "#e2e2e2",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#474746",
+                        "primary-fixed-dim": "#adc6ff",
+                        "tertiary-fixed-dim": "#ffb595",
+                        "on-tertiary-container": "#4c1a00",
+                        "secondary-container": "#474746",
+                        "surface-container-low": "#1a1c1c",
+                        "surface-container-high": "#282a2b",
+                        "on-tertiary-fixed": "#351000",
+                        "surface-container": "#1e2020",
+                        "error-container": "#93000a",
+                        "secondary": "#c8c6c5",
+                        "primary-container": "#4b8eff",
+                        "outline-variant": "#414755",
+                        "on-primary-fixed-variant": "#004493",
+                        "surface": "#121414",
+                        "secondary-fixed": "#e5e2e1",
+                        "primary": "#adc6ff",
+                        "on-primary-fixed": "#001a41",
+                        "inverse-on-surface": "#2f3131",
+                        "on-error": "#690005",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "background": "#121414",
+                        "outline": "#8b90a0",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-container-highest": "#333535",
+                        "on-secondary": "#313030",
+                        "inverse-surface": "#e2e2e2",
+                        "tertiary-fixed": "#ffdbcc",
+                        "on-tertiary-fixed-variant": "#7c2e00",
+                        "tertiary-container": "#ef6719",
+                        "surface-container-lowest": "#0c0f0f",
+                        "on-surface-variant": "#c1c6d7",
+                        "on-tertiary": "#571e00",
+                        "surface-dim": "#121414",
+                        "on-primary": "#002e69",
+                        "tertiary": "#ffb595"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "card-gap": "24px",
+                        "container-padding-mobile": "20px",
+                        "container-padding-desktop": "40px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "display": ["Inter", "sans-serif"],
+                        "label-sm": ["JetBrains Mono", "monospace"],
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }]
+                    }
+                }
+            }
         }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            padding: 30px 15px;
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-
-        .card {
-            max-width: 400px;
-            margin: auto;
-            background: white;
-            border-radius: 20px;
-            padding: 30px 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.10);
-        }
-
-        .logo {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-        }
-
-        h1 {
-            font-size: 26px;
-            margin-bottom: 8px;
-        }
-
-        .profession {
-            color: #777;
-            margin-bottom: 25px;
-        }
-
-        .info {
-            text-align: left;
-            margin-bottom: 25px;
-        }
-
-        .info p {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .button {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            margin-top: 12px;
-            border-radius: 12px;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .save {
-            background: #111;
-            color: white;
-        }
-
-        .call {
-            background: #eee;
-            color: #111;
-        }
-
-        .whatsapp {
-            background: #eee;
-            color: #111;
-        }
-
-        .maps {
-            background: #eee;
-            color: #111;
-        }
-
-        .footer {
-            margin-top: 25px;
-            color: #999;
-            font-size: 12px;
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
         }
     </style>
 </head>
-
-<body>
-
-<div class="card">
-
-    <!-- Logo -->
-    <img
-        src="logo.png"
-        alt="Café Atlas"
-        class="logo"
-    >
-
-    <!-- Nom -->
-    <h1>Café Atlas</h1>
-
-    <p class="profession">
-        Restaurant & Café
-    </p>
-
-
-    <!-- Informations -->
-    <div class="info">
-
-        <p>
-            📍 Agadir, Maroc
-        </p>
-
-        <p>
-            📞 +212 600 000 000
-        </p>
-
-        <p>
-            ✉️ contact@cafeatlas.ma
-        </p>
-
-        <p>
-            🌐 www.cafeatlas.ma
-        </p>
-
-    </div>
-
-
-    <!-- Enregistrer contact -->
-    <button
-        class="button save"
-        onclick="saveContact()"
-    >
-        💾 Enregistrer le contact
-    </button>
-
-
-    <!-- Appeler -->
-    <a
-        href="tel:+212600000000"
-        class="button call"
-    >
-        📞 Appeler
-    </a>
-
-
-    <!-- WhatsApp -->
-    <a
-        href="https://wa.me/212600000000"
-        class="button whatsapp"
-        target="_blank"
-    >
-        💬 WhatsApp
-    </a>
-
-
-    <!-- Google Maps -->
-    <a
-        href="https://maps.google.com/?q=Agadir+Morocco"
-        class="button maps"
-        target="_blank"
-    >
-        📍 Google Maps
-    </a>
-
-
-    <div class="footer">
-        Carte de contact NFC
-    </div>
-
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen flex flex-col md:items-center">
+<!-- Top Navigation (Mobile App-like) -->
+<header class="flex justify-between items-center px-container-padding-mobile md:px-container-padding-desktop w-full h-16 bg-surface dark:bg-surface border-b border-surface-variant sticky top-0 z-10 hidden md:flex max-w-[800px]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">terminal</span>
+<span class="font-display text-headline-lg-mobile md:text-headline-lg font-bold text-primary">DevCard Pro</span>
 </div>
-
-
+<nav class="flex gap-4">
+<a class="text-primary hover:text-primary transition-colors duration-200" href="#">Connect</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Projects</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Info</a>
+</nav>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 w-full max-w-[800px] mx-auto p-container-padding-mobile pb-32 md:p-container-padding-desktop flex flex-col gap-card-gap">
+<!-- Profile Section (Level 1 Surface) -->
+<section class="bg-surface-container-low rounded-xl p-card-gap border border-white/10 relative overflow-hidden group">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="w-32 h-32 rounded-full overflow-hidden mb-4 border-2 border-surface-variant relative shadow-[0_0_15px_rgba(173,198,255,0.15)]">
+<img class="w-full h-full object-cover" data-alt="A highly detailed professional headshot portrait of a modern web developer in a sleek, dimly lit studio setting. The lighting is moody with subtle cool blue edge highlights emphasizing their face against a deep dark background. They are wearing casual but professional tech attire. The overall mood is confident and innovative, fitting a premium digital portfolio aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZudU6pglGTFpu-qutDeN2SlGO7omCBGH4etVM7SbDDPFahr92p_s7DA3Sf9jVSrS-NPsI1LGyvjixnlYgh-1xAJ55Fc0-mBmE95t7UbQw5r6ld8wSecdmAavN-b2zV7KNuR3AWnxLpr2P3ho5dhcthEzLWk-_OQxU2ZEfYBacdFkBHXNa4moZSUN8P5CeOqeWCtfeca1Fr47bRhtf24g5aF8zygGcvrhk_g8bDRhZow1ZvQiT8OPF"/>
+</div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2">Alexandre Dupont</h1>
+<p class="text-on-surface-variant font-label-sm text-label-sm mb-6 uppercase tracking-wider">Développeur Full Stack</p>
+<!-- Primary Action Button -->
+<button
+    id="addContactBtn"
+    class="w-full md:w-auto px-8 py-4 bg-primary text-on-primary rounded-lg font-body-md text-body-md font-semibold flex items-center justify-center gap-3 hover:scale-[1.02] transition-transform duration-200 hover:shadow-[0_0_20px_rgba(173,198,255,0.3)]"
+>
+    <span class="material-symbols-outlined icon-fill">person_add</span>
+    Ajouter aux contacts
+</button>
+</div>
+</section>
+<!-- Quick Actions (Bento Style) -->
+<section class="grid grid-cols-3 gap-base">
+<a class="bg-surface-container-low border border-white/10 rounded-xl p-4 flex flex-col items-center justify-center gap-2 hover:border-primary/50 hover:bg-surface-container transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">mail</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface">Email</span>
+</a>
+<a class="bg-surface-container-low border border-white/10 rounded-xl p-4 flex flex-col items-center justify-center gap-2 hover:border-primary/50 hover:bg-surface-container transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">phone</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface">Appel</span>
+</a>
+<a class="bg-surface-container-low border border-white/10 rounded-xl p-4 flex flex-col items-center justify-center gap-2 hover:border-primary/50 hover:bg-surface-container transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">public</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface">Portfolio</span>
+</a>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-card-gap">
+<!-- Tech Stack -->
+<section class="bg-surface-container-low border border-white/10 rounded-xl p-card-gap flex flex-col gap-4">
+<h2 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Tech Stack</h2>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 rounded-full bg-primary/10 border border-primary text-primary font-label-sm text-label-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">code</span>
+                        React
+                    </span>
+<span class="px-3 py-1.5 rounded-full bg-primary/10 border border-primary text-primary font-label-sm text-label-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">palette</span>
+                        Tailwind CSS
+                    </span>
+<span class="px-3 py-1.5 rounded-full bg-primary/10 border border-primary text-primary font-label-sm text-label-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">dns</span>
+                        Node.js
+                    </span>
+<span class="px-3 py-1.5 rounded-full bg-primary/10 border border-primary text-primary font-label-sm text-label-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">database</span>
+                        PostgreSQL
+                    </span>
+</div>
+</section>
+<!-- Social Links -->
+<section class="bg-surface-container-low border border-white/10 rounded-xl p-card-gap flex flex-col gap-4">
+<h2 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Réseaux Sociaux</h2>
+<div class="flex flex-col gap-3">
+<a class="w-full px-4 py-3 bg-transparent border-[1.5px] border-white/20 text-on-surface rounded-lg font-body-md text-body-md flex items-center justify-between hover:border-primary hover:text-primary transition-colors duration-200" href="#">
+<span class="flex items-center gap-3">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                            LinkedIn
+                        </span>
+<span class="material-symbols-outlined text-on-surface-variant">arrow_forward</span>
+</a>
+<a class="w-full px-4 py-3 bg-transparent border-[1.5px] border-white/20 text-on-surface rounded-lg font-body-md text-body-md flex items-center justify-between hover:border-primary hover:text-primary transition-colors duration-200" href="#">
+<span class="flex items-center gap-3">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                            GitHub
+                        </span>
+<span class="material-symbols-outlined text-on-surface-variant">arrow_forward</span>
+</a>
+</div>
+</section>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile App-like) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 px-base pb-safe bg-surface-container-high dark:bg-surface-container-high border-t border-white/10 shadow-lg md:hidden rounded-t-xl">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 hover:text-primary transition-all duration-200 scale-105 transition-transform" href="#">
+<span class="material-symbols-outlined icon-fill">person_add</span>
+<span class="font-label-sm text-label-sm mt-1">Connect</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-200" href="#">
+<span class="material-symbols-outlined">code</span>
+<span class="font-label-sm text-label-sm mt-1">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-200" href="#">
+<span class="material-symbols-outlined">contact_page</span>
+<span class="font-label-sm text-label-sm mt-1">Info</span>
+</a>
+</nav>
 <script>
-
-function saveContact() {
-
-    const vcard = `BEGIN:VCARD
-VERSION:3.0
-FN:Café Atlas
-ORG:Café Atlas
-TEL;TYPE=CELL:+212780856535
-EMAIL:contact@cafeatlas.ma
-ADR;TYPE=WORK:;;Agadir;;;Maroc
-URL:https://cafeatlas.ma
-END:VCARD`;
-
-    const blob = new Blob(
-        [vcard],
-        {
+    document.getElementById("addContactBtn").addEventListener("click", function () {
+    
+        // Informations du contact
+        const contact = `
+    BEGIN:VCARD
+    VERSION:3.0
+    FN:Alexandre Dupont
+    N:Dupont;Alexandre;;;
+    TITLE:Développeur Full Stack
+    TEL;TYPE=CELL:+212600000000
+    EMAIL:alexandre@example.com
+    URL:https://example.com
+    NOTE:Développeur Full Stack
+    END:VCARD
+    `;
+    
+        // Création du fichier VCF
+        const blob = new Blob([contact], {
             type: "text/vcard;charset=utf-8"
-        }
-    );
-
-    const url = URL.createObjectURL(blob);
-
-    const link = document.createElement("a");
-
-    link.href = url;
-
-    link.download = "Cafe-Atlas.vcf";
-
-    document.body.appendChild(link);
-
-    link.click();
-
-    document.body.removeChild(link);
-
-    URL.revokeObjectURL(url);
-}
-
-</script>
-
-</body>
-</html>
+        });
+    
+        // Création d'un lien temporaire
+        const url = URL.createObjectURL(blob);
+    
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "Alexandre-Dupont.vcf";
+    
+        // Téléchargement
+        document.body.appendChild(link);
+        link.click();
+    
+        // Nettoyage
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    });
+    </script>
+</body></html>
